@@ -10,13 +10,12 @@ class Solution {
         for(Map.Entry<String,Integer> e : hm.entrySet()){
             String s1 = e.getKey();
             int v1 = e.getValue();
-            char c1 = s1.charAt(0),c2 = s1.charAt(1);
-            if(c1 == c2){
+            String s2 = new StringBuilder(s1).reverse().toString();
+            if(s1.equals(s2)){
                 res += 4*(v1/2);
                 cnt = Math.max(cnt,2*(v1%2));
                 continue;
             }
-            String s2 = s1.charAt(1)+""+s1.charAt(0);
             if(hm.containsKey(s2)){
                 int v2 = hm.get(s2);
                 int mini = Math.min(v1,v2);
