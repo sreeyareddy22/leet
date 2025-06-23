@@ -32,12 +32,10 @@ class Solution {
         ListNode cur1 = head;
         slow.next = null;
         while(cur1 != null && cur2 != null){
-            ListNode t1 = cur1.next;
-            ListNode t2 = cur2.next;
+            ListNode t1 = cur1.next, t2 = cur2.next;
 
             cur2.next = cur1.next;
             cur1.next = cur2;
-
             cur1 = t1;
             cur2 = t2;
         }
