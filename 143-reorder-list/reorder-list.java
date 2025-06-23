@@ -9,6 +9,18 @@
  * }
  */
 class Solution {
+    public ListNode reverse(ListNode head){
+        ListNode prev = null;
+        ListNode next = null;
+        ListNode curr = head;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+    return prev;
+    }
     public void reorderList(ListNode head) {
         ListNode slow = head;
         ListNode f = head;
@@ -16,19 +28,18 @@ class Solution {
             slow = slow.next;
             f = f.next.next;
         }
-        Stack<ListNode> st = new Stack<>();
-        ListNode nn = slow.next;
-        while(nn != null){
-            st.push(nn);
-            nn = nn.next;
-        }
+        ListNode cur2 = reverse(slow.next);
+        ListNode cur1 = head;
         slow.next = null;
-        ListNode curr = head;
-        while(!st.isEmpty()){
-            ListNode top = st.pop();
-            top.next = curr.next;
-            curr.next = top;
-            curr = curr.next.next;
+        while(cur1 != null && cur2 != null){
+            ListNode t1 = cur1.next;
+            ListNode t2 = cur2.next;
+
+            cur2.next = cur1.next;
+            cur1.next = cur2;
+
+            cur1 = t1;
+            cur2 = t2;
         }
     }
 }
