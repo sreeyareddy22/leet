@@ -12,8 +12,11 @@ class Solution {
         return flag;
     }
     static boolean isPalin(String s){
-        StringBuilder sb = new StringBuilder(s);
-        String rev = sb.reverse().toString();
-        return s.equals(rev);
+        int n = s.length();
+        for(int i = 0;i < s.length();i++){
+            if(s.charAt(i) != s.charAt(n-i-1))
+                return false;
+        }
+    return true;
     }
 }
