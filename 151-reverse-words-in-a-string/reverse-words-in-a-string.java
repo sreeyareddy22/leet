@@ -5,13 +5,12 @@ class Solution {
         for(String word : s){
             st.push(word);
         }
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         for(int i = 0;i < s.length;i++){
-            String p = st.pop();
-            ans += p;
+            ans.append(st.pop());
             if(!st.isEmpty())
-                ans += " ";
+                ans.append(" ");
         }
-        return ans;
+        return ans.toString();
     }
 }
