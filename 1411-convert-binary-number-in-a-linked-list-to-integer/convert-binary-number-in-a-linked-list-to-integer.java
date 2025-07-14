@@ -15,6 +15,7 @@ class Solution {
             s += head.val;
             head = head.next;
         }
-        return Integer.valueOf(s,2);
+        int res =  Integer.valueOf(s,2);
+        return res;
     }
 }
