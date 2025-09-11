@@ -2,27 +2,23 @@ class Solution {
     public String sortVowels(String s) {
         String vow = "";
         int n = s.length();
-        ArrayList<Character> al = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
         String vowels = "aeiouAEIOU";
-        boolean[] b = new boolean[n];
-        for(int i = 0;i < n;i++){
-            char ch = s.charAt(i);
-            if(vowels.indexOf(ch) != -1){
-                al.add(ch);
-                b[i] = true;
+        char[] ch = s.toCharArray();
+        for(char c : ch){
+            if(vowels.indexOf(c) != -1){
+                sb.append(c);
             }
         }
-        Collections.sort(al);
-        int p = 0;
-        String res = "";
-        for(int i = 0;i < n;i++){
-            if(b[i]){
-                res += al.get(p);
-                p++;
+        char[] sor = sb.toString().toCharArray();
+        Arrays.sort(sor);
+        int i = 0,k = 0;
+        for(char c : ch){
+            if(vowels.indexOf(c) != -1){
+                ch[i] = sor[k++];
             }
-            else
-                res += s.charAt(i);
+            i++;
         }
-        return res;
+        return new String(ch);
     }
 }
