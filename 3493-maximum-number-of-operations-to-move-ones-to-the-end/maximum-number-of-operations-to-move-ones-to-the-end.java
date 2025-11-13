@@ -17,7 +17,6 @@ class Solution {
                 cnt += i+1; 
                 al.set(i,al.get(i+1)-1);
             }
-            System.out.println(cnt);
         }
         if(al.get(m-1) != n-1)
             cnt += m;
